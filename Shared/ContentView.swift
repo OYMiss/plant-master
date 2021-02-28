@@ -124,11 +124,11 @@ struct RecordView: View {
             }.padding(.top, 8).padding(.bottom, 8)
             HStack {
                 Text("养分:").font(.footnote).foregroundColor(.secondary)
-                Text(toString(i: record.seed.growthFormula * record.count / (isLoved ? 1 : 2)))
+                Text(toString(i: record.seed.growthFormula / (isLoved ? 1 : 2)))
                     .frame(width: 32).foregroundColor(.blue)
-                Text(toString(i: record.seed.compost * record.count / (isLoved ? 1 : 2)))
+                Text(toString(i: record.seed.compost / (isLoved ? 1 : 2)))
                     .frame(width: 32).foregroundColor(.yellow)
-                Text(toString(i: record.seed.mansure * record.count / (isLoved ? 1 : 2)))
+                Text(toString(i: record.seed.mansure / (isLoved ? 1 : 2)))
                     .frame(width: 32).foregroundColor(.purple)
                 Spacer()
                 CustomSteper(value: $record.count)
@@ -231,10 +231,12 @@ struct AddSeedView: View {
 struct ContentView: View {
     @State private var notificationFeedback = UINotificationFeedbackGenerator()
     @State private var impactFeedback = UIImpactFeedbackGenerator()
-    @State private var showNotLoved = true
+    @State private var showNotLoved = false
     @State private var editing:EditMode = EditMode.inactive
     @State private var value = 0
-    @State private var records:[Record] = [Record(seed: seeds[1], count: 4)]
+    @State private var records:[Record] = seeds.map({ (seed) -> Record in
+        return Record(seed: seed, count: 0)
+    })
     @State private var season = 0
     
     func bindRecords(index: Int) -> Binding<Record> {
