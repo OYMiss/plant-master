@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20D74" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Record" representedClassName="Record" syncable="YES" codeGenerationType="class">
+        <attribute name="count" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="seed" maxCount="1" deletionRule="No Action" destinationEntity="Seed"/>
+    </entity>
+    <entity name="Seed" representedClassName="Seed" syncable="YES" codeGenerationType="class">
+        <attribute name="compost" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="growthFormula" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="mansure" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String" defaultValueString=""/>
+        <attribute name="season" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+    </entity>
+    <elements>
+        <element name="Record" positionX="-178.6572265625" positionY="-195.7514953613281" width="128" height="89"/>
+        <element name="Seed" positionX="52.4661865234375" positionY="-182.2301330566406" width="128" height="119"/>
+    </elements>
+</model>

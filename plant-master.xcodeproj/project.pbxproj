@@ -13,6 +13,10 @@
 		3C00377525E3993A0020C44F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C00376025E399380020C44F /* ContentView.swift */; };
 		3C00377625E3993A0020C44F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C00376125E3993A0020C44F /* Assets.xcassets */; };
 		3C00377725E3993A0020C44F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C00376125E3993A0020C44F /* Assets.xcassets */; };
+		3C275A3A25F238DB00B331FD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C275A3825F238DB00B331FD /* Model.xcdatamodeld */; };
+		3C275A3B25F238DB00B331FD /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3C275A3825F238DB00B331FD /* Model.xcdatamodeld */; };
+		3C275A4125F23B3E00B331FD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C275A4025F23B3E00B331FD /* Persistence.swift */; };
+		3C275A4225F23B3E00B331FD /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C275A4025F23B3E00B331FD /* Persistence.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,8 @@
 		3C00376E25E3993A0020C44F /* plant-master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "plant-master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C00377025E3993A0020C44F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C00377125E3993A0020C44F /* macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = macOS.entitlements; sourceTree = "<group>"; };
+		3C275A3925F238DB00B331FD /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		3C275A4025F23B3E00B331FD /* Persistence.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +63,11 @@
 		3C00375E25E399380020C44F /* Shared */ = {
 			isa = PBXGroup;
 			children = (
+				3C275A4025F23B3E00B331FD /* Persistence.swift */,
 				3C00375F25E399380020C44F /* PlantMasterApp.swift */,
 				3C00376025E399380020C44F /* ContentView.swift */,
 				3C00376125E3993A0020C44F /* Assets.xcassets */,
+				3C275A3825F238DB00B331FD /* Model.xcdatamodeld */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -187,6 +195,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C275A3A25F238DB00B331FD /* Model.xcdatamodeld in Sources */,
+				3C275A4125F23B3E00B331FD /* Persistence.swift in Sources */,
 				3C00377425E3993A0020C44F /* ContentView.swift in Sources */,
 				3C00377225E3993A0020C44F /* PlantMasterApp.swift in Sources */,
 			);
@@ -197,7 +207,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C00377525E3993A0020C44F /* ContentView.swift in Sources */,
+				3C275A4225F23B3E00B331FD /* Persistence.swift in Sources */,
 				3C00377325E3993A0020C44F /* PlantMasterApp.swift in Sources */,
+				3C275A3B25F238DB00B331FD /* Model.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +332,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "plant-master.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48N2PS3R99;
 				ENABLE_PREVIEWS = YES;
@@ -332,6 +345,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.oymiss.plant-master";
 				PRODUCT_NAME = "plant-master";
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -342,6 +356,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "plant-master.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 48N2PS3R99;
 				ENABLE_PREVIEWS = YES;
@@ -354,6 +369,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "io.github.oymiss.plant-master";
 				PRODUCT_NAME = "plant-master";
 				SDKROOT = iphoneos;
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -439,6 +455,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3C275A3825F238DB00B331FD /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3C275A3925F238DB00B331FD /* Model.xcdatamodel */,
+			);
+			currentVersion = 3C275A3925F238DB00B331FD /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3C00375A25E399380020C44F /* Project object */;
 }
