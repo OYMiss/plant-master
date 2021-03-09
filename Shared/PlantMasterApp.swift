@@ -17,6 +17,10 @@ struct PlantMasterApp: App {
                 ContentView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
                     .navigationTitle("Plant Master")
+                    .onAppear {
+                        persistenceController.generateSeedData()
+                    }
+                
             }
         }
     }

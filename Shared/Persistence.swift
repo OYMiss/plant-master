@@ -72,10 +72,30 @@ struct PersistenceController {
 
     let container: NSPersistentContainer
 
+    func generateSeedData() {
+        do {
+            if try container.viewContext.fetch(Seed.fetchRequest()).isEmpty {
+                for seed in seedsNaive {
+                    let s = Seed(context: container.viewContext)
+                    s.id = Int64(seed.id)
+                    s.name = seed.name
+                    s.growthFormula = Int64(seed.growthFormula)
+                    s.compost = Int64(seed.compost)
+                    s.mansure = Int64(seed.mansure)
+                    s.season = Int64(seed.season)
+                }
+                try container.viewContext.save()
+            }
+        } catch {
+
+        }
+    }
+    
     init(inMemory: Bool = false) {
         container = NSPersistentContainer(name: "Model")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")
+            
         }
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
             if let error = error as NSError? {
@@ -93,21 +113,6 @@ struct PersistenceController {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
-//        do {
-//            if try container.viewContext.fetch(Seed.fetchRequest()).isEmpty {
-//                for seed in seedsNaive {
-//                    let s = Seed(context: container.viewContext)
-//                    s.id = Int64(seed.id)
-//                    s.name = seed.name
-//                    s.growthFormula = Int64(seed.growthFormula)
-//                    s.compost = Int64(seed.compost)
-//                    s.mansure = Int64(seed.mansure)
-//                    s.season = Int64(seed.season)
-//                }
-//                try container.viewContext.save()
-//            }
-//        } catch {
-//
-//        }
+
     }
 }
